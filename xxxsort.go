@@ -10,11 +10,9 @@ func BubbelSort[T cmp.Ordered](s []T, mode string) ([]T, error) {
 		for i := 0; i < len(s); i++ {
 			is_swap := false
 			for j := 0; j < len(s)-i-1; j++ {
-				if mode == "asc" {
-					if s[j] > s[j+1] {
-						s[j], s[j+1] = s[j+1], s[j]
-						is_swap = true
-					}
+				if s[j] > s[j+1] {
+					s[j], s[j+1] = s[j+1], s[j]
+					is_swap = true
 				}
 			}
 
