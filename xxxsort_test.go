@@ -144,3 +144,33 @@ func TestInsertionSort(t *testing.T) {
 		})
 	})
 }
+
+func TestQuickSort(t *testing.T) {
+	t.Run("sort number", func(t *testing.T) {
+		t.Run("ascending mode", func(t *testing.T) {
+			s := []int{4, 5, 2, 1, 1, 9, 0}
+			xxxsort.QuickSortAsc(s, 0, len(s)-1)
+			assert.Equal(t, []int{0, 1, 1, 2, 4, 5, 9}, s)
+		})
+
+		t.Run("descending mode", func(t *testing.T) {
+			s := []int{4, 5, 2, 1, 1, 9, 0}
+			xxxsort.QuickSortDesc(s, 0, len(s)-1)
+			assert.Equal(t, []int{9, 5, 4, 2, 1, 1, 0}, s)
+		})
+	})
+
+	t.Run("sort string", func(t *testing.T) {
+		t.Run("ascending mode", func(t *testing.T) {
+			s := []string{"apping", "appang", "appeng", "appung", "appong"}
+			xxxsort.QuickSortAsc(s, 0, len(s)-1)
+			assert.Equal(t, []string{"appang", "appeng", "apping", "appong", "appung"}, s)
+		})
+
+		t.Run("descending mode", func(t *testing.T) {
+			s := []string{"apping", "appang", "appeng", "appung", "appong"}
+			xxxsort.QuickSortDesc(s, 0, len(s)-1)
+			assert.Equal(t, []string{"appung", "appong", "apping", "appeng", "appang"}, s)
+		})
+	})
+}
